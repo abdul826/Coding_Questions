@@ -1,0 +1,190 @@
+// 1: Split Metho
+The split() method splits a string into an array of substrings.
+
+The split() method returns the new array.
+
+The split() method does not change the original string.
+
+Syntax
+string.split(separator, limit)
+
+Example:
+<script>
+let text = "How are you doing today?";
+const myArray = text.split(" ");
+
+console.log(myArray);
+</script>
+
+Output
+['How', 'are', 'you','doing', 'today?']
+
+If we use limit so It create an array according to limit
+
+Example
+<script>
+    const myArray1 = text.split(" ", 3);
+</script>
+
+Output
+['How', 'are', 'you']
+
+***************************************************************
+sort Method
+The sort() method in JavaScript is used to sort the elements of an array in place and returns the sorted array. 
+By default, the sort() method sorts the elements as strings in ascending order. 
+
+Default Behavior
+When no compareFunction is provided, the sort() method converts each element to a string and compares their sequences of UTF-16 code unit values.
+This can lead to unexpected results, especially with numbers.
+However, you can provide a custom sorting function to specify the sort order.
+
+<script>
+const numbers = [10, 1, 21, 2];
+numbers.sort();
+console.log(numbers); 
+</script>
+// Output: [1, 10, 2, 21]
+
+Parameters 
+compareFunction (optional): A function that defines the sort order. 
+If omitted, the array elements are converted to strings and sorted according to the Unicode code point values.
+
+Custom Sorting
+To sort numbers correctly, you can provide a compareFunction. This function takes two arguments and returns:
+
+A negative number if the first argument should come before the second.
+A positive number if the first argument should come after the second.
+Zero if they are considered equal.
+
+<script>
+const numbers1 = [10, 1, 21, 2];
+// Custom compare function for numerical sorting
+numbers.sort((a, b) => a - b);
+console.log(numbers);
+
+</script>
+
+// Output:
+[1, 2, 10, 21];
+
+***************************************************************
+
+reduce method
+
+The reduce() method executes a reducer function for array element.
+
+The reduce() method returns a single value: the function's accumulated result.
+
+The reduce() method does not execute the function for empty array elements.
+
+The reduce() method does not change the original array.
+
+<script>
+
+let arr = [175, 50, 25];
+
+// Callback function for reduce method
+function subofArray(total, num) {
+  console.log(total)
+  console.log(num)
+    return total - num;
+}
+
+//Function to execute reduce method 
+function myGeeks(item) {
+
+    // Display output
+    console.log(arr.reduce(subofArray));
+}
+myGeeks();
+
+OR
+
+let array = ["My", "Name", "is", "Abdul", "Rahma"];
+let resultString = array.reduce((accumulator, currentValue) => {
+    return accumulator + ' ' + currentValue; // Concatenate with a space
+});
+console.log(resultString.trim()); // Output: My Name is Abdul Rahma
+</script>
+
+**********************************************
+
+slice() Method
+
+The slice() method returns selected elements in an array, as a new array.
+
+The slice() method selects from a given start, up to a (not inclusive) given end.
+
+The slice() method does not change the original array.
+
+<script>
+    function func() {
+
+// Original Array
+let arr = [23, [87, 32, 75, 27,3,10,18 ,13]];
+
+// Extracted array
+let new_arr = arr[1].slice(2, 4);
+console.log(arr);
+console.log(new_arr);
+}
+func();
+</script>
+
+**********************************************
+
+join() Method
+
+The JavaScript Array join() Method is used to join the elements of an array into a string. 
+
+The elements of the string will be separated by a specified separator. 
+
+By default it's value is a comma(,).
+
+<script>
+    let a = [1, 2, 3, 4, 5, 6];
+    console.log(a.join()); 
+
+    OR
+
+    let b = [1, 2, 3, 4, 5, 6];
+    console.log(b.join(' '));
+</script>
+
+**********************************************
+
+evert() method
+
+The every() method executes a function for each array element.
+
+The every() method returns true if the function returns true for all elements.
+
+The every() method returns false if the function returns false for one element.
+
+The every() method does not execute the function for empty elements.
+
+The every() method does not change the original array
+
+<script>
+    function arraysEqual(a1, b1) {
+    // First check if the lengths of the arrays are the same
+    if (a1.length !== b1.length) {
+        return false; // If lengths differ, arrays are not equal
+    }
+
+    // Use every to check if all elements in a1 are the same as in b1 at the same index
+    return a1.every((value, index) => value === b1[index]);
+}
+
+// Example usage:
+const a1 = [1, 2, 3];
+const b1 = [1, 2, 3];
+const c1 = [1, 2, 4];
+const d1 = [3, 2, 1];
+
+console.log(arraysEqual(a1, b1)); // Output: true
+console.log(arraysEqual(a1, c1)); // Output: false
+console.log(arraysEqual(a1, d1)); // Output: false
+</script>
+
